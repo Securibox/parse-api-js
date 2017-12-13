@@ -1,0 +1,23 @@
+{
+  "name": "sbx-parse-api",
+  "version": "0.1.0",
+  "description": "JavaScript API for Securibox Parse",
+  "main": "lib/sbx-parse-api.js",
+  "scripts": {
+    "compile": "babel --presets es2015 -d lib/ src/",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Securibox/parse-api-js.git"
+  },
+  "author": "Securibox",
+  "license": "LGPL-3.0",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "dependencies": {
+    "base-64": "^0.1.0"
+  }
+}
