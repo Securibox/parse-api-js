@@ -17,7 +17,7 @@ class Parse
                 if (args.length === 2) {
                     auth = b64encode(`${args[0]}:${args[1]}`);
                 } else {
-                    throw new Error('Username and password must not be empty');
+                    throw new Error('Username and password must not be empty!');
                 }
             break;
             case AuthMethods.JWT:
@@ -46,6 +46,11 @@ class Parse
         for (let doc of docs) {
             let obj = {};
 
+            if (doc.id === undefined) {
+                throw Error('Document ID must not be empty!');
+            }
+            obj['id'] = doc.id;
+
             if (doc.buffer !== undefined) {
                 obj['content'] = btoa(
                     String.fromCharCode(...new Uint8Array(doc.buffer)));
@@ -54,11 +59,7 @@ class Parse
             } else if (doc.content !== undefined) {
                 obj['content'] = obj.content;
             } else {
-                throw Error('No document content found!');
-            }
-
-            if (doc.id !== undefined) {
-                obj['id'] = doc.id;
+                throw Error('Document content must not be empty!');
             }
 
             if (doc.labelId !== undefined) {
