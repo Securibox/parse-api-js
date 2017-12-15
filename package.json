@@ -5,7 +5,7 @@
   "main": "lib/sbx-parse-api.js",
   "scripts": {
     "compile": "babel --presets es2015 -d lib/ src/",
-    "prepublish": "npm run compile"
+    "prepare": "npm run compile"
   },
   "repository": {
     "type": "git",
