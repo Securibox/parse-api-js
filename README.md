@@ -70,7 +70,7 @@ The `docs` object is used on both _Requests_ and _Responses_. The structure is a
 * `detailedLabelId` (_optional_): the document layout identifier
   * `parse()` and `classify()`: if filled, the document will not be classified
   * _Response_: will be filled with the best matching layout
-* `extractedData`: the extracted data fields. Array object, every item contains a `name` and a `value` field. Returned on `parse()` and `guess()`, should be filled on `feed()`.
+* `extractedData`: the extracted data fields. Array object, every item contains a `name` and a `value` field. Returned on `parse()` and `guess()`, should be filled on `feed()` and (for some documents) on `guess()`.
 * `errors`: an array containing processing errors for the specific document. Storing errors by document allows you to successfully process the rest of the batch.
 
 ### Sample
