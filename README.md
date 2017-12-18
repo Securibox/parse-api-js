@@ -32,11 +32,13 @@ import {Parse, AuthMethods} from "sbx-parse-api";
 
 // Using JWT authentication
 let jwt = "thisIsMyEncodedToken";
+authMethod = AuthMethods.JWT;
 var parser = new Parse(url, authMethod, jwt);
 
 // OR, with basic authentication:
 // user = "MyUsername";
 // password = "MySecretPassword";
+// authMethod = AuthMethods.BASIC;
 // var parser = new Parse(url, authMethod, user, password);
 ```
 
