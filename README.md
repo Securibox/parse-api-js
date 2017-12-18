@@ -4,7 +4,7 @@ A Javascript API for Securibox Parse
 
 ## Community
 
-Securibox Parse JavaScript API is open source software released under an
+Securibox Parse JavaScript API is an open source software released under an
 [LGPL-3.0 license](https://github.com/Securibox/parse-api-js/blob/master/LICENSE).
 
 You are welcome to [report bugs](https://github.com/Securibox/parse-api-js/issues) or create pull requests on [github](https://github.com/Securibox/parse-api-js).
