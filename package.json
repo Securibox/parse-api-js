@@ -1,7 +1,13 @@
 {
   "name": "sbx-parse-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "JavaScript API for Securibox Parse",
+  "keywords": [
+    "Securibox",
+    "Parse",
+    "Securibox Parse",
+    "Document Processing"
+  ],
   "main": "lib/sbx-parse-api.js",
   "scripts": {
     "compile": "babel --presets es2015 -d lib/ src/",
