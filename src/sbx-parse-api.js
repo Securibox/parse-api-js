@@ -114,6 +114,12 @@ class Parse
         return this._request(docs, url);
     }
 
+    guess(docs)
+    {
+        let url = '/docs/guess';
+        return this._request(docs, url);
+    }
+
     feed(docs)
     {
         let url = '/docs/feed';
