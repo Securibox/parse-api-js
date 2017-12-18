@@ -30,7 +30,14 @@ git clone https://github.com/Securibox/parse-api-js.git
 ```JavaScript
 import {Parse, AuthMethods} from "sbx-parse-api";
 
-var parser = new Parse(url, authMethod, ...authKeys);
+// Using JWT authentication
+let jwt = "thisIsMyEncodedToken";
+var parser = new Parse(url, authMethod, jwt);
+
+// OR, with basic authentication:
+// user = "MyUsername";
+// password = "MySecretPassword";
+// var parser = new Parse(url, authMethod, user, password);
 ```
 
 ### Authentication
@@ -39,9 +46,9 @@ Supported authentication methods:
 * `AuthMethods.BASIC`: [basic authentication](https://tools.ietf.org/html/rfc2617) using username and password
 * `AuthMethods.JWT`: [JSON Web Tokens](https://jwt.io/) using tokens
 
-After you have instanciated a `Parse` object, you can use it to call the API. Every call will return a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). Only requests returning a **200** HTTP code will result in a fulfilled promise and trigger the `.then()` method; everything else will fall into the `.catch()` method and return an error structured as `{"error": [Error Object]}`.
+### API Methods
 
-### Methods
+After you have instanciated a `Parse` object, you can use it to call the API. Every call will return a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). Only requests returning a **200** HTTP code will result in a fulfilled promise and trigger the `.then()` method; everything else will fall into the `.catch()` method and return an error structured as `{"error": [Error Object]}`.
 
 The API has four methods:
 * `classify(docs, take=5)`: takes a set of documents and labels them. Internally, the classification is done in two steps: first a fast algorithm returns a list of candidate labels; then a slower high-precision algorithm choses among the `take` most probable labels and determines the document's specific layout. The `take` optional parameter is a number between 1 and 9 (5 is the default value).  
@@ -72,6 +79,7 @@ let docs = [];
 let doc = {id: "Doc_01", content: "Base64ContentMustGoHere"};
 docs.push(doc);
 parser.parse(docs).then(function(parsedDocs){
+    // parsedDocs is an array of documents
     alert("The doc contains " + parsedDocs[0].extractedData);
 });
 ```
