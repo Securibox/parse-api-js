@@ -62,7 +62,7 @@ The API has four methods:
 
 The `docs` object is used on both _Requests_ and _Responses_. The structure is always an array of the following dictionary:
 * `id`: the document identifier, must be unique in the set
-* `buffer` or `bytes` or `content`: the content of the PDF document. The buffer is waiting for an `ArrayBuffer`, the `bytes` is waiting for an array of bytes while the `content` is the content of the PDF in `base64` encoding. **Only exists on _Requests_.**
+* `buffer` or `bytes` or `content`: the content of the PDF document. The `buffer` is waiting for an `ArrayBuffer`, the `bytes` is waiting for an array of bytes while the `content` is the content of the PDF in `base64` encoding. **Only exists on _Requests_.**
 * `labelId` (_optional_): the document label identifier
   * `parse()` and `classify()`: if filled, the document will be only layout-classified
   * `feed()`: used to train the models
