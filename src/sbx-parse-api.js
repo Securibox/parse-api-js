@@ -67,7 +67,11 @@ class Parse
             }
 
             if (doc.detailedLabelId !== undefined) {
-                obj['detailedLabelId'] = doc.id;
+                obj['detailedLabelId'] = doc.detailedLabelId;
+            }
+
+            if (doc.extractedData !== undefined) {
+                obj['extractedData'] = doc.extractedData;
             }
 
             result.push(obj);
