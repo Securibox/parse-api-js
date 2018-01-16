@@ -1,6 +1,6 @@
 {
   "name": "sbx-parse-api",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "JavaScript API for Securibox Parse",
   "keywords": [
     "Securibox",
