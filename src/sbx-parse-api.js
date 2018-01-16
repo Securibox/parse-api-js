@@ -52,7 +52,7 @@ class Parse
             obj['id'] = doc.id;
 
             if (doc.buffer !== undefined) {
-                obj['content'] = btoa(
+                obj['content'] = b64encode(
                     String.fromCharCode(...new Uint8Array(doc.buffer)));
             } else if (doc.bytes !== undefined) {
                 obj['content'] = b64encode(obj.bytes);
