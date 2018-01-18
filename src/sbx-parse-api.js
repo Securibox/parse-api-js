@@ -80,13 +80,17 @@ class Parse
         return JSON.stringify(result);
     }
 
-    _request(docs, url)
+    _doc_post(docs, url){
+        return this._request(this._create_payload(docs), url, 'POST');
+    }
+
+    _request(payload, url, method)
     {
         return fetch(
             `${this.url}${url}`, {
-                    method:'POST',
+                    method: method,
                     headers: this.headers,
-                body: this._create_payload(docs),
+                body: payload,
                 credentials: 'include'
                 })
         .then(function(response) {
@@ -106,7 +110,7 @@ class Parse
         if (take !== undefined) {
             url += `?take=${take}`;
         }
-        return this._request(docs, url);
+        return this._doc_post(docs, url);
     }
 
     parse(docs, mode)
@@ -115,19 +119,43 @@ class Parse
         if (mode !== undefined) {
             url += `?mode=${mode}`;
         }
-        return this._request(docs, url);
+        return this._doc_post(docs, url);
     }
 
     guess(docs)
     {
         let url = '/docs/guess';
-        return this._request(docs, url);
+        return this._doc_post(docs, url);
     }
 
     feed(docs)
     {
         let url = '/docs/feed';
-        return this._request(docs, url);
+        return this._doc_post(docs, url);
+    }
+
+    train(docs)
+    {
+        let url = '/docs/train';
+        return this._doc_post(docs, url);
+    }
+
+    pending(docIds)
+    {
+        let url = '/docs/pending';
+        return this._request(docsIds, url, 'POST');
+    }
+
+    getExtractedDataKeys()
+    {
+        let url = '/xdata';
+        return this._request(null, url, 'GET');
+    }
+
+    getLabels()
+    {
+        let url = '/labels';
+        return this._request(null, url, 'GET');
     }
 }
 
