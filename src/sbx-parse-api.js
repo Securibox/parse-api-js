@@ -52,8 +52,7 @@ class Parse
             obj['id'] = doc.id;
 
             if (doc.buffer !== undefined) {
-                obj['content'] = b64encode(
-                    String.fromCharCode(...new Uint8Array(doc.buffer)));
+                obj['content'] = b64encode(_arrayBufferToBytes(doc.buffer));
             } else if (doc.bytes !== undefined) {
                 obj['content'] = b64encode(obj.bytes);
             } else if (doc.content !== undefined) {
@@ -157,6 +156,16 @@ class Parse
         let url = '/labels';
         return this._request(null, url, 'GET');
     }
+}
+
+function _arrayBufferToBytes( buffer ) {
+    var binary = '';
+    var bytes = new Uint8Array( buffer );
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode( bytes[ i ] );
+    }
+    return  binary;
 }
 
 export {Parse, AuthMethods};
